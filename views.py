@@ -5,10 +5,10 @@ import tweepy
 @app.route('/')
 @app.route('/index')
 def index():
-	ckey='wuWgjIP9ouUWTeo0D3WcF1WZ0'
-	csecret='KLjs8izSiuTDkHlOpjlFcrmxaJnQSMTqqckvxvVC2g1RMc5Gwo'
-	atoken='615818947-y32PlOKg38iu4hMjcjV42u5fKJzSM1ixbpWoIibb'
-	asecret='aDqKj6OlbrwqQ7zAGh8ONgPTn02p0k062zsGppiWJLv3U'
+	ckey=''
+	csecret=''
+	atoken=''
+	asecret=''
 
 	auth = tweepy.OAuthHandler(ckey, csecret)
 	auth.set_access_token(atoken, asecret)
