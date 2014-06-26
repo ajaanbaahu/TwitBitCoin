@@ -15,10 +15,10 @@ class Tweet(Document):
 #test_tweet=Tweet(tweet="This is test tweet", user="Test_User",tweet_date=datetime.datetime.now(),tag="Positive",user_type=True).save()
 #test_tweet2=Tweet(tweet="This is test2 tweet", user="Test_User2",tweet_date=datetime.datetime.now(),tag="Negative",user_type=True).save()
 
-ckey='wuWgjIP9ouUWTeo0D3WcF1WZ0'
-csecret='KLjs8izSiuTDkHlOpjlFcrmxaJnQSMTqqckvxvVC2g1RMc5Gwo'
-atoken='615818947-y32PlOKg38iu4hMjcjV42u5fKJzSM1ixbpWoIibb'
-asecret='aDqKj6OlbrwqQ7zAGh8ONgPTn02p0k062zsGppiWJLv3U'
+ckey=''
+csecret=''
+atoken=''
+asecret=''
 
 auth = tweepy.OAuthHandler(ckey, csecret)
 auth.set_access_token(atoken, asecret)
