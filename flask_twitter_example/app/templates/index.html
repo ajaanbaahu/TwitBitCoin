@@ -1,0 +1,32 @@
+<html>
+	<head> {% if title %}
+		<title>{{title}}</title>
+		{% else %}
+		<title>Hello, World!</title>
+		{% endif %}
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type=text/javascript>
+    function classifyTweet(elem){
+    		var tweet_num = $(elem).attr("id").charAt(3);
+    		console.log(tweet_num)
+        $.getJSON('/_classify_tweet', {
+         	text :  $('input[name="text' + tweet_num + '"]').val(),
+          classification:  $('input[name="classification' + tweet_num + '"]').val()
+        }, function(data) {
+          console.log(data)
+        });
+        return false;
+    };
+  </script>
+	</head>
+	<body>
+		<h1>Hello, {{user.nickname}}!</h1>
+		{% for i, tweet in tweets %}
+		<p>{{tweet.user.name}} says: <b>{{tweet.text}}</b></p>
+		<p>User has: {{tweet.user.followers_count}} follwers</b></p>
+		<input type="hidden" name="text{{i}}" value="{{tweet.text}}">
+		<input type="hidden" name="classification{{i}}" value="positive">
+		<div><button><a id="div{{i}}" href="#" class="button" onclick="classifyTweet(this)">positive</a></button></div>
+		{% endfor %}
+	</body>
+</html>	
