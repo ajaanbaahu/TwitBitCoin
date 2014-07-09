@@ -10,9 +10,9 @@ connect('test1')
 @app.route('/index')
 def index():
 	ckey=''
-	csecret=''
-	atoken=''
-	asecret=''
+ 	csecret=''
+ 	atoken=''
+ 	asecret=''
 
 	auth = tweepy.OAuthHandler(ckey, csecret)
 	auth.set_access_token(atoken, asecret)

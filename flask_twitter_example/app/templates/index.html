@@ -7,11 +7,15 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type=text/javascript>
     function classifyTweet(elem){
+    		console.log(elem.getAttribute('onclick'));
     		var tweet_num = $(elem).attr("id").charAt(3);
+    		$('#neg' + tweet_num).css('background-color', '#999'), $('#pos' + tweet_num).css('background-color', '#999');
+    		$('#neg' + tweet_num).attr('onclick', 'alert("You already classified this tweet!");');
+    		$('#pos' + tweet_num).attr('onclick', 'alert("You already classified this tweet!");');
     		console.log(tweet_num)
         $.getJSON('/_classify_tweet', {
          	text :  $('input[name="text' + tweet_num + '"]').val(),
-          classification:  $('input[name="classification' + tweet_num + '"]').val()
+          classification:  $(elem).attr('name')
         }, function(data) {
           console.log(data)
         });
@@ -25,8 +29,10 @@
 		<p>{{tweet.user.name}} says: <b>{{tweet.text}}</b></p>
 		<p>User has: {{tweet.user.followers_count}} follwers</b></p>
 		<input type="hidden" name="text{{i}}" value="{{tweet.text}}">
-		<input type="hidden" name="classification{{i}}" value="positive">
-		<div><button><a id="div{{i}}" href="#" class="button" onclick="classifyTweet(this)">positive</a></button></div>
+		<div>
+			<button style="background-color:green" id="pos{{i}}" name="positive" class="button" onclick="classifyTweet(this)">Positive</button>
+		</div>
+		<div><button style="background-color:red" id="neg{{i}}" name="negative" class="button" onclick="classifyTweet(this)">Negative</button></div>
 		{% endfor %}
 	</body>
 </html>	
